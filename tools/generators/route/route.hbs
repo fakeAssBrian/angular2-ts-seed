@@ -1,0 +1,8 @@
+{
+  path: '{{ path }}',
+  component(compiler) {
+    System.import('./pages/{{ dashCase component }}/{{ dashCase component }}.page')
+      .then(module => compiler.resolveComponent(module.{{ properCase component }}PageComponent));
+  }
+},
+$1

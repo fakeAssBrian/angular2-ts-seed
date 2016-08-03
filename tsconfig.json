@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noEmitHelpers": true
+  },
+  "include": [
+    "typings/index.d.ts",
+    "tools/manual-typings/**/*",
+    "src/**/*"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

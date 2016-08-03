@@ -1,0 +1,24 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": ["stylelint-scss"],
+  "ignoreFiles": [
+    "**/vendor/**"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "at-rule-empty-line-before": null,
+    "block-no-empty": null,
+    "max-empty-lines": null,
+    "indentation": 2,
+    "rule-non-nested-empty-line-before": null,
+    "selector-pseudo-element-colon-notation": "single",
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": ["host"]
+    }],
+    "media-feature-no-missing-punctuation": null,
+    "no-indistinguishable-colors": true,
+    "no-unsupported-browser-features": [true, {
+      "browsers": "last 2 versions, IE > 10"
+    }]
+  }
+}

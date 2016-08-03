@@ -1,0 +1,34 @@
+import { {{properCase name}}Actions } from '../actions';
+
+/**
+ * @param {} {{camelCase name}}s
+ * @param \{{type: string, payload: *}} action
+ * @returns {*}
+ */
+export function {{camelCase name}}Reducer({{camelCase name}}s = [], action) {
+  switch (action.type) {
+
+    case {{properCase name}}Actions.ADD:
+      return [
+        ...{{camelCase name}}s,
+        action.payload
+      ];
+
+    case {{properCase name}}Actions.TOGGLE:
+      return {{camelCase name}}s.map({{camelCase name}} => {
+        if ({{camelCase name}}.id !== action.payload) return {{camelCase name}};
+
+        return {
+          ...{{camelCase name}},
+          completed: !{{camelCase name}}.completed
+        };
+      });
+
+    case {{properCase name}}Actions.REMOVE:
+      return {{camelCase name}}s.filter({{camelCase name}} => {{camelCase name}}.id !== action.payload);
+
+    default:
+      return {{camelCase name}}s;
+
+  }
+}

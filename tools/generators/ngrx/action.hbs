@@ -1,0 +1,38 @@
+/* tslint:disable member-ordering */
+import { Injectable } from '@angular/core';
+
+
+let id = 1;
+
+@Injectable()
+export class {{ properCase name }}Actions {
+
+  static ADD = '[{{ properCase name }}] Add';
+  add(title) {
+    return {
+      type: {{ properCase name }}Actions.ADD,
+      payload: {
+        id: ++id,
+        title,
+        completed: false
+      }
+    };
+  }
+
+  static TOGGLE = '[{{ properCase name }}] Toggle';
+  toggle({{ camelCase name }}Id) {
+    return {
+      type: {{ properCase name }}Actions.TOGGLE,
+      payload: {{ camelCase name }}Id
+    };
+  }
+
+  static REMOVE = '[{{ properCase name }}] Remove';
+  remove({{ camelCase name }}Id) {
+    return {
+      type: {{ properCase name }}Actions.REMOVE,
+      payload: {{ camelCase name }}Id
+    };
+  }
+
+}

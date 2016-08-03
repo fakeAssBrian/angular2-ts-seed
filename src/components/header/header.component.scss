@@ -1,0 +1,30 @@
+@import "../../styles/component-seed";
+
+:host {
+  display: block;
+}
+
+.navbar {
+  background-color: $navbar-bg-color;
+  position: static;
+}
+
+.bg-inverse .nav-item {
+  &.active a {
+    text-decoration: underline;
+  }
+  a {
+    color: #eceeef;
+  }
+}
+
+.navbar-toggler {
+  color: #fff;
+}
+
+.nav-item {
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    float: none;
+    margin: 0 !important;
+  }
+}

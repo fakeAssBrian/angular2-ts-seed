@@ -1,0 +1,14 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: '{{ dashCase selector }}',
+  template: `
+    <span>{{ dashCase name }} component</span>
+  `,
+{{#if wantCSS}}
+  styles: [require('./{{ dashCase name }}.component.scss')]
+{{/if}}
+})
+export class {{ properCase name }}Component {
+
+}
