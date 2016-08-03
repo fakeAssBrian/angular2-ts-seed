@@ -8,8 +8,8 @@ export const PORT = process.env.PORT || IS_PROD ? 8080 : 3000;
 
 export const HTML_METADATA = {
   lang: 'en',
-  title: 'Angular2 ES Seed',
-  description: 'A complete, yet simple, starter for Angular 2 using ES2016.',
+  title: 'Angular2 TS Seed',
+  description: 'A complete, yet simple, starter for Angular 2 using TypeScript.',
   baseUrl: '/',
   analytics: 'UA-71073175-1'
 };

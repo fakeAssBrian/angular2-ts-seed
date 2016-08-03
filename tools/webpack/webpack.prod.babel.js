@@ -18,12 +18,6 @@ import cssnano from 'cssnano';
 
 export default extendBaseWebpackConfig({
 
-  entry: {
-    polyfills: path.join(process.cwd(), SRC_DIR, 'polyfills.ts'),
-    vendor: path.join(process.cwd(), SRC_DIR, 'vendor.ts'),
-    app: path.join(process.cwd(), SRC_DIR, 'bootstrap.ts')
-  },
-
   output: {
     filename: 'static/js/[name].[chunkhash].ts',
     sourceMapFilename: 'static/js/[name].[chunkhash].map',
