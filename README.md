@@ -44,7 +44,10 @@ $ cd my-app
 # install the dependencies with npm
 $ npm i
 
-# start the server
+# start mock json api
+$ npm run start:mock-api
+
+# start webpack-dev-server in a separate terminal session
 $ npm start
 ```
 navigate to [http://localhost:3000][23] or [http://0.0.0.0:3000][24] in your browser.
@@ -72,9 +75,9 @@ What you need to run this app:
 * `fork` this repo
 * `clone` your fork
 * `npm i` to install all dependencies
-* `npm start` to start the dev server
+* `npm run start:mock-api` to start mock json api
+* `npm start` to start webpack-dev-server
 * navigate to [http://localhost:3000][23]
-
 
 ## Running the app
 
