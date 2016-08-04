@@ -14,6 +14,11 @@ import assets from 'postcss-assets';
 
 export default extendBaseWebpackConfig({
 
+  entry: {
+    polyfills: path.join(process.cwd(), SRC_DIR, 'polyfills.ts'),
+    app: path.join(process.cwd(), SRC_DIR, 'bootstrap.ts')
+  },
+
   output: {
     filename: '[name].ts',
     sourceMapFilename: '[name].map',

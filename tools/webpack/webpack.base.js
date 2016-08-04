@@ -7,11 +7,7 @@ import CommonsChunkPlugin from 'webpack/lib/optimize/CommonsChunkPlugin';
 
 export default options => ({
 
-  entry: {
-    polyfills: path.join(process.cwd(), SRC_DIR, 'polyfills.ts'),
-    vendor: path.join(process.cwd(), SRC_DIR, 'vendor.ts'),
-    app: path.join(process.cwd(), SRC_DIR, 'bootstrap.ts')
-  },
+  entry: options.entry,
 
   // Static metadata that will be consumed by HtmlWebpackPlugin in index.html.
   metadata: HTML_METADATA,
