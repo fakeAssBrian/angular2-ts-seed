@@ -11,22 +11,21 @@ export function todoReducer(todos = [], action) {
     case TodoActions.LOAD_SUCCESS:
       return action.payload;
 
-    case TodoActions.ADD:
+    case TodoActions.ADD_SUCCESS:
       return [
-        ...todos,
-        action.payload
+        action.payload,
+        ...todos
       ];
 
-    case TodoActions.TOGGLE:
+    case TodoActions.TOGGLE_SUCCESS:
       return todos.map(todo => {
-        if (todo.id !== action.payload) return todo;
+        if (todo.id !== action.payload.id) return todo;
 
-        return Object.assign(todo, {completed: !todo.completed});
-
+        return Object.assign({}, todo, {completed: !todo.completed});
       });
 
-    case TodoActions.REMOVE:
-      return todos.filter(todo => todo.id !== action.payload);
+    case TodoActions.REMOVE_SUCCESS:
+      return todos.filter(todo => todo.id !== action.payload.id);
 
     default:
       return todos;

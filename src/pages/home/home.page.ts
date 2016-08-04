@@ -9,18 +9,7 @@ import 'rxjs/add/operator/let';
   selector: 'home-page',
   template: `
     <h1>home page</h1>
-
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let todo of todos$ | async"
-          (click)="toggle(todo.id)" [ngClass]="{completed: todo.completed}"
-      >
-        <span>{{todo.title}}</span>
-        <button class="close" (click)="remove(todo.id)">×</button>
-      </li>
-    </ul>
-
-    <br>
-
+    
     <form [formGroup]="cTF" (ngSubmit)="onSubmit()">
       <div class="form-group" [ngClass]="{'has-danger': cTF.controls.title.dirty && !cTF.controls.title.valid}">
         <input formControlName="title" type="text" class="form-control" placeholder="Todo title">
@@ -33,8 +22,19 @@ import 'rxjs/add/operator/let';
           </div>
         </div>
       </div>
-      <button type="submit" [disabled]="!cTF.valid" class="btn btn-primary btn-block">Create todo</button>
+      <button type="submit" class="btn btn-primary btn-block">Create todo</button>
     </form>
+    
+    <br>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let todo of todos$ | async"
+          (click)="toggle(todo)" [ngClass]="{completed: todo.completed}"
+      >
+        <span>{{todo.title}}</span>
+        <button class="close" (click)="remove(todo.id, $event)">×</button>
+      </li>
+    </ul>
   `,
   styles: [require('./home.page.scss')]
 })
@@ -46,10 +46,10 @@ export class HomePageComponent implements OnInit {
    */
   cTF = null;
 
-  todos$:any;
+  todos$: any;
 
-  constructor(private store:Store<any>, private todoActions:TodoActions,
-              private todoSelectors:TodoSelectors, private formBuilder:FormBuilder) {
+  constructor(private store: Store<any>, private todoActions: TodoActions,
+              private todoSelectors: TodoSelectors, private formBuilder: FormBuilder) {
     this.store = store;
     this.todoActions = todoActions;
     this.todos$ = this.store.let(todoSelectors.getState());
@@ -66,18 +66,19 @@ export class HomePageComponent implements OnInit {
     });
   }
 
-  toggle(todoId) {
-    this.store.dispatch(this.todoActions.toggle(todoId));
+  toggle(todo) {
+    this.store.dispatch(this.todoActions.toggle(todo));
   }
 
-  remove(todoId) {
+  remove(todoId, evt) {
+    evt.stopPropagation();
     this.store.dispatch(this.todoActions.remove(todoId));
   }
 
   onSubmit() {
-    this.store.dispatch(this.todoActions.add(this.cTF.controls.title.value));
+    this.store.dispatch(this.todoActions.addTodo(this.cTF.controls.title.value));
 
-    // there is no way to reset a form yet
+    // there is no way to reset a form yet, wait rc5
     this.createForm();
   }
 }

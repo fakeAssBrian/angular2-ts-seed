@@ -1,7 +1,7 @@
-const faker = require('faker');
-const _ = require('lodash');
+import faker from 'faker';
+import _ from 'lodash';
 
-module.exports = function generateDb() {
+export default function generateDb() {
   return {
     "users": generateUsers(),
     "todos": generateTodos()
@@ -14,7 +14,9 @@ function generateUsers() {
       id: i,
       name: faker.name.firstName() + ' ' + faker.name.lastName(),
       email: faker.internet.email(),
-      avatar: faker.image.avatar()
+      avatar: faker.image.avatar(),
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
   });
 }
@@ -25,7 +27,9 @@ function generateTodos() {
       id: i,
       title: faker.lorem.sentence(),
       completed: faker.random.boolean(),
-      userId: _.random(0, 9)
+      userId: _.random(0, 9),
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
   });
 }
