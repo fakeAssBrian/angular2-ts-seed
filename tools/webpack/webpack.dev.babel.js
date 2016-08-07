@@ -1,5 +1,5 @@
 import path from 'path';
-import { SRC_DIR, DIST_DIR, PORT, packageSort } from '../config';
+import { SRC_DIR, DIST_DIR, HOST, PORT, packageSort } from '../config';
 import extendBaseWebpackConfig from './webpack.base';
 
 // Webpack plugins
@@ -61,6 +61,7 @@ export default extendBaseWebpackConfig({
 
   devServer: {
     contentBase: path.join(process.cwd(), SRC_DIR),
+    host: HOST,
     port: PORT,
     historyApiFallback: true,
     stats: 'errors-only',

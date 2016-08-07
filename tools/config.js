@@ -4,6 +4,7 @@ export const IS_DEV = process.env.NODE_ENV === 'development';
 export const SRC_DIR = 'src';
 export const DIST_DIR = 'dist';
 
+export const HOST = process.env.HOST || '0.0.0.0';
 export const PORT = process.env.PORT || IS_PROD ? 8080 : 3000;
 
 export const HTML_METADATA = {
