@@ -4,10 +4,9 @@ import { runEffects } from '@ngrx/effects';
 import { instrumentStore } from '@ngrx/store-devtools';
 import { useLogMonitor } from '@ngrx/store-log-monitor';
 import { storeFreeze } from 'ngrx-store-freeze';
-import { reducers } from './reducers';
-import { ACTION_PROVIDERS } from './actions';
-import { SELECTOR_PROVIDERS } from './selectors';
-import { effects } from './effects';
+import { reducers } from './app.reducers';
+// TODO(tsm): dummy effects
+import { DummyEffects } from './features/auth/effects';
 
 
 /**
@@ -35,16 +34,6 @@ export const STORE_PROVIDERS = [
   provideStore(store),
 
   /**
-   * Provide action creators.
-   */
-  ...ACTION_PROVIDERS,
-
-  /**
-   * Provide selectors.
-   */
-  ...SELECTOR_PROVIDERS,
-
-  /**
    * runEffects configures all providers for @ngrx/effects. Observables decorated
    * as an @Effect() within the supplied services will ultimately be merged,
    * with output of relevant (registered as effects) actions being
@@ -53,7 +42,7 @@ export const STORE_PROVIDERS = [
    *
    * Source: https://github.com/ngrx/effects/blob/master/lib/run-effects.ts#L8-L20
    */
-  runEffects(effects),
+  runEffects([DummyEffects]),
 
   /**
    * instrumentStore() sets up the @ngrx/store-devtools providers.

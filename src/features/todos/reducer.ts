@@ -1,4 +1,4 @@
-import { TodoActions } from '../actions';
+import { TodoActions } from './actions';
 
 /**
  * @param {Array<{id: number, title: string, completed: boolean}>} todos

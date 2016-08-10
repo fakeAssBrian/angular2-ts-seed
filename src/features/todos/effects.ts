@@ -1,16 +1,18 @@
 /* tslint:disable member-ordering */
-import {Injectable} from '@angular/core';
-import {Effect, StateUpdates, toPayload} from '@ngrx/effects';
-import {TodoActions} from '../actions';
-import {TodoService} from '../services';
+import { Injectable } from '@angular/core';
+import { Effect, StateUpdates, toPayload } from '@ngrx/effects';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+import { TodoActions } from './actions';
+import { TodoService } from './model';
 
 @Injectable()
 export class TodoEffects {
-  constructor(private updates$: StateUpdates<any>, private todoActions: TodoActions, private todoService: TodoService) {
+  constructor(private updates$: StateUpdates<any>,
+              private todoActions: TodoActions,
+              private todoService: TodoService) {
   }
 
   @Effect() loadTodosOnInit$ = Observable.of(this.todoActions.loadTodos());

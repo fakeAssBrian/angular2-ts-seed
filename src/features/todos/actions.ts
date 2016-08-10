@@ -1,6 +1,6 @@
 /* tslint:disable member-ordering */
-import {Injectable} from '@angular/core';
-import {createAction} from 'redux-actions';
+import { Injectable } from '@angular/core';
+import { createAction } from 'redux-actions';
 
 @Injectable()
 export class TodoActions {

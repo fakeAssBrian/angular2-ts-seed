@@ -50,7 +50,7 @@ class NavbarBrandDirective {
   `,
   styles: [require('./header.component.scss')]
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+class HeaderComponent implements OnInit, OnDestroy {
 
   /**
    * @type {{route: string, title: string}}
@@ -154,4 +154,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 }
 
-export const HEADER_DIRECTIVES = [HeaderComponent, NavbarBrandDirective];
+export const HeaderComponents = [HeaderComponent, NavbarBrandDirective];

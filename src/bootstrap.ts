@@ -6,8 +6,8 @@ import { disableDeprecatedForms, provideForms, REACTIVE_FORM_DIRECTIVES } from '
 import { NGB_DIRECTIVES } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { STORE_PROVIDERS } from './store';
-import { ROUTER_PROVIDERS } from './routes';
+import { STORE_PROVIDERS } from './app.store';
+import { ROUTER_PROVIDERS } from './app.routes';
 import { SERVICE_PROVIDERS } from './services';
 import { PIPE_PROVIDERS } from './pipes';
 

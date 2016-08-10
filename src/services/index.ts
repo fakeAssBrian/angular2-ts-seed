@@ -1,18 +1,15 @@
 import { AsyncComponentResolverService } from './async-component-resolver.service';
 import { ConfigService } from './config.service';
-import { TodoService } from './todo.service';
 // $1
 
 export {
   AsyncComponentResolverService,
-  ConfigService,
-  TodoService
+  ConfigService
 // $2
 };
 
 export const SERVICE_PROVIDERS = [
-  ConfigService,
-  TodoService
+  ConfigService
 // $3
 ];
 

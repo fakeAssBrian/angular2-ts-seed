@@ -1,4 +1,4 @@
-import { todoReducer } from './todo.reducer';
+import { todoReducer } from './features/todos';
 // $1
 
 export const reducers = {

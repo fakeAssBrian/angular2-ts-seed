@@ -8,16 +8,16 @@ const routes = [
     path: '',
     component(compiler) {
       return System
-        .import('./pages/home/home.page')
-        .then(module => compiler.resolveComponent(module.HomePageComponent));
+        .import('./pages/home')
+        .then(module => compiler.resolveComponent(module.HomePage));
     }
   },
   {
     path: '**',
     component(compiler) {
       return System
-        .import('./pages/not-found/not-found.page')
-        .then(module => compiler.resolveComponent(module.NotFoundPageComponent));
+        .import('./pages/not-found')
+        .then(module => compiler.resolveComponent(module.NotFoundPage));
     }
   }
 ];

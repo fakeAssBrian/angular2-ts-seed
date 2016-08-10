@@ -1,10 +1,12 @@
+/* tslint:disable component-class-suffix */
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'home-page',
+  selector: 'not-found-page',
   template: `
     <h1>404 page</h1>
-  `
+  `,
+  styles: [require('./not-found.page.scss')]
 })
-export class NotFoundPageComponent {
+export class NotFoundPage {
 }

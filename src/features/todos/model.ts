@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions, URLSearchParams} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import {TodoEntity as Todo} from '../entities';
-import {random} from 'lodash';
-import {ConfigService} from './';
+import { TodoEntity as Todo } from './entities';
+import { random } from 'lodash';
+import { ConfigService } from '../../services';
 
 @Injectable()
 export class TodoService {
