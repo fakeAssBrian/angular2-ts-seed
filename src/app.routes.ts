@@ -1,24 +1,26 @@
-import { provideRouter } from '@angular/router';
+import { provideRouter, Routes } from '@angular/router';
 import { ComponentResolver } from '@angular/core';
 import { RuntimeCompiler } from '@angular/compiler';
 import { AsyncComponentResolverService } from './services';
 
-const routes = [
+export const routes: Routes = [
   {
     path: '',
-    component(compiler) {
-      return System
-        .import('./pages/home')
-        .then(module => compiler.resolveComponent(module.HomePage));
-    }
+    component: require('./pages/home/home.page').HomePage
+    // component(compiler) {
+    //   return System
+    //     .import('./pages/home')
+    //     .then(module => compiler.resolveComponent(module.HomePage));
+    // }
   },
   {
     path: '**',
-    component(compiler) {
-      return System
-        .import('./pages/not-found')
-        .then(module => compiler.resolveComponent(module.NotFoundPage));
-    }
+    component: require('./pages/not-found/not-found.page').NotFoundPage
+    // component(compiler) {
+    //   return System
+    //     .import('./pages/not-found')
+    //     .then(module => compiler.resolveComponent(module.NotFoundPage));
+    // }
   }
 ];
 

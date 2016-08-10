@@ -42,7 +42,11 @@ export const STORE_PROVIDERS = [
    *
    * Source: https://github.com/ngrx/effects/blob/master/lib/run-effects.ts#L8-L20
    */
-  runEffects([DummyEffects]),
+  runEffects([DummyEffects])
+
+];
+
+if (IS_DEV) STORE_PROVIDERS.push(
 
   /**
    * instrumentStore() sets up the @ngrx/store-devtools providers.
@@ -53,4 +57,5 @@ export const STORE_PROVIDERS = [
       visible: false
     })
   })
-];
+
+);

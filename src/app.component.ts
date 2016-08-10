@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponents } from './components/header';
 import { FooterComponent } from './components/footer';
-import { NGB_PRECOMPILE } from '@ng-bootstrap/ng-bootstrap';
 import { StoreLogMonitorComponent } from '@ngrx/store-log-monitor';
 
 import './styles/main.scss';
@@ -9,7 +8,6 @@ import './styles/main.scss';
 @Component({
   selector: 'nsa-app',
   directives: [HeaderComponents, FooterComponent, IS_DEV ? StoreLogMonitorComponent : []],
-  precompile: [NGB_PRECOMPILE],
   template: `
 
     <!-- Header -->
