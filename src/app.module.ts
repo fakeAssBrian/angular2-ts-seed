@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from './shared.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponents } from './components/header';
@@ -17,7 +17,7 @@ import { appRouting, appRoutingProviders } from './app.routes';
   ],
   imports: [
     BrowserModule,
-    NgbModule,
+    SharedModule.forRoot(),
     appRouting
   ],
   providers: [

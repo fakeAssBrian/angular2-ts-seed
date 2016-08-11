@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { SharedModule } from '../../shared.module';
 
 import { TodoWidgetComponent } from './components/todo-widget';
 import { CreateTodoComponent } from './components/create-todo';
@@ -18,9 +16,20 @@ import { TodoSelectors } from './selectors';
 export { todoReducer } from './reducer';
 
 @NgModule({
-  declarations: [TodoWidgetComponent, CreateTodoComponent, TodoListComponent],
-  imports: [CommonModule, ReactiveFormsModule, HttpModule],
-  providers: [TodoActions, TodoEffects, TodoService, TodoSelectors],
+  declarations: [
+    TodoWidgetComponent,
+    CreateTodoComponent,
+    TodoListComponent
+  ],
+  imports: [
+    SharedModule.forRoot()
+  ],
+  providers: [
+    TodoActions,
+    TodoEffects,
+    TodoService,
+    TodoSelectors
+  ],
   exports: [TodoWidgetComponent]
 })
 export class TodosFeatureModule {

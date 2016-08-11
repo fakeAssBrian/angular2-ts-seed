@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NotFoundPage } from './not-found.page';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared.module';
 import { RouterModule } from '@angular/router';
 
 const notFoundRoutes = [
@@ -10,7 +10,7 @@ const notFoundRoutes = [
 @NgModule({
   declarations: [NotFoundPage],
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild(notFoundRoutes),
   ]
 })
