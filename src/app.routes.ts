@@ -12,7 +12,7 @@ const appRoutes/*: Routes*/ = [
     }
   },
   {
-    path: '**',
+    path: 'asd',
     loadChildren(compiler) {
       return System
         .import('./pages/not-found')
