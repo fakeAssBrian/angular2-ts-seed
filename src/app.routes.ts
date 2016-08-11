@@ -16,7 +16,10 @@ export const appRoutes = [
       console.log('#loadChildren', compiler);
       return System
         .import('./pages/not-found')
-        .then(module => compiler.compileModuleAsync(module.NotFoundModule));
+        .then(module => {
+          console.log('debug');
+          return compiler.compileModuleAsync(module.NotFoundModule);
+        });
     }
   }
 ];

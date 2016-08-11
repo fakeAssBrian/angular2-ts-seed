@@ -14,7 +14,6 @@ import { SERVICE_PROVIDERS } from './services';
  */
 import { appRouting, appRoutingProviders } from './app.routes';
 import { HomeModule } from './pages/home';
-import { NotFoundModule } from './pages/not-found';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { NotFoundModule } from './pages/not-found';
     BrowserModule,
     NgbModule,
     appRouting,
-    HomeModule,
-    NotFoundModule
+    HomeModule
   ],
   // PROVIDERS WILL BE VISIBLE IN ALL IMPORTED MODULES
   providers: [
