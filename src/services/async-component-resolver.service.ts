@@ -24,15 +24,19 @@ export class WebpackNgModuleLoader implements NgModuleFactoryLoader {
     return module(this._compiler);
   }
 
-  private loadFactory(path: any): Promise<NgModuleFactory<any>> {
+  private loadFactory(module: any): Promise<NgModuleFactory<any>> {
     console.log('TODO: #loadFactory');
-    let [module, exportName] = path.split(_SEPARATOR);
-    if (exportName === undefined) exportName = 'default';
 
-    return (<any>global)
-      .System.import(module + FACTORY_MODULE_SUFFIX)
-      .then((module: any) => module[exportName + FACTORY_CLASS_SUFFIX])
-      .then((factory: any) => checkNotEmpty(factory, module, exportName));
+    /**
+     * todo(tsm): stringify module and append `FACTORY_MODULE_SUFFIX` and `FACTORY_CLASS_SUFFIX`
+     *
+     * module.toString() so you can get the function body
+     */
+
+    // return (<any>global)
+    //   .System.import(module + FACTORY_MODULE_SUFFIX)
+    //   .then((module: any) => module[exportName + FACTORY_CLASS_SUFFIX])
+    //   .then((factory: any) => checkNotEmpty(factory, module, exportName));
   }
 
 }
