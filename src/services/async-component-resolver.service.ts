@@ -6,6 +6,8 @@ const FACTORY_CLASS_SUFFIX = 'NgFactory';
 
 /**
  * NgModuleFactoryLoader that passes _compiler to load NgModuleFactory with reverse control
+ *
+ * @url https://github.com/angular/angular/issues/10659
  * @experimental
  */
 @Injectable()
@@ -24,7 +26,7 @@ export class WebpackNgModuleLoader implements NgModuleFactoryLoader {
     return module(this._compiler);
   }
 
-  private loadFactory(module: any): Promise<NgModuleFactory<any>> {
+  private loadFactory(module: any): any {
     console.log('TODO: #loadFactory');
 
     /**

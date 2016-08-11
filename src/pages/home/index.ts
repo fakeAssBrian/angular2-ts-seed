@@ -6,7 +6,7 @@ import { HomePage } from './home.page';
 import { TodosFeatureModule } from '../../features/todos';
 
 const homeRoutes = [
-  {path: 'todos', component: HomePage}
+  {path: '', component: HomePage}
 ];
 
 
