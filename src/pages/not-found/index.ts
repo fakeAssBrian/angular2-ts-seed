@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { NotFoundPage } from './not-found.page';
 import { SharedModule } from '../../shared.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const notFoundRoutes = [
+const notFoundRoutes: Routes = [
   {path: '', component: NotFoundPage}
 ];
 

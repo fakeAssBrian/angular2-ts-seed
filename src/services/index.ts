@@ -1,4 +1,4 @@
-import { WebpackNgModuleLoader } from './async-component-resolver.service';
+import { WebpackNgModuleLoader } from './webpack-module-loader';
 import { ConfigService } from './config.service';
 // $1
 

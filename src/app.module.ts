@@ -9,6 +9,10 @@ import { STORE_PROVIDERS } from './app.store';
 import { SERVICE_PROVIDERS } from './services';
 import { appRouting, appRoutingProviders } from './app.routes';
 
+/**
+ * NgModule
+ * https://angular.io/docs/ts/latest/guide/ngmodule.html#!#-ngmodule-properties
+ */
 @NgModule({
   declarations: [
     AppComponent,

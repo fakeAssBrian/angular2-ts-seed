@@ -1,8 +1,8 @@
 import { NgModuleFactoryLoader } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { WebpackNgModuleLoader } from './services';
 
-const appRoutes = [
+const appRoutes/*: Routes*/ = [
   {
     path: '',
     loadChildren(compiler) {
@@ -12,7 +12,7 @@ const appRoutes = [
     }
   },
   {
-    path: 'asd',
+    path: '**',
     loadChildren(compiler) {
       return System
         .import('./pages/not-found')
