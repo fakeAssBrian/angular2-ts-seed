@@ -23,7 +23,7 @@ export class WebpackNgModuleLoader implements NgModuleFactoryLoader {
     // NEED THIS
     //   .then((type: any) => this._compiler.compileModuleAsync(type));
 
-    return Promise.resolve(module(this._compiler));
+    return module(this._compiler);
   }
 
   private loadFactory(path: string): any {
