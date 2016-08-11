@@ -13,13 +13,9 @@ export const appRoutes = [
     path: 'asd',
     // Route interface modified at `./node_modules/@angular/router/src/config.d.ts`
     loadChildren(compiler) {
-      console.log('#loadChildren', compiler);
       return System
         .import('./pages/not-found')
-        .then(module => {
-          console.log('debug');
-          return compiler.compileModuleAsync(module.NotFoundModule);
-        });
+        .then(module => compiler.compileModuleAsync(module.NotFoundModule));
     }
   }
 ];
