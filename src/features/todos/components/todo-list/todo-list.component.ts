@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { mergeEffects } from '@ngrx/effects';
+
 import 'rxjs/add/operator/let';
 import { TodoActions } from '../../actions';
 import { TodoSelectors } from '../../selectors';
-import { TodoEffects } from '../../effects';
 
 @Component({
   selector: 'todo-list',
@@ -25,11 +24,8 @@ export class TodoListComponent {
   todos$: any;
 
   constructor(private store: Store<any>,
-              // ALL FUCKING COMPONENTS NEED TODO EFFECTS BUT ONLY NEEDED TO PROVIDE ONCE
-              private todoEffects: TodoEffects,
               private todoActions: TodoActions,
               private todoSelectors: TodoSelectors) {
-    mergeEffects(todoEffects).subscribe(store);
     this.todos$ = this.store.let(todoSelectors.getState());
   }
 

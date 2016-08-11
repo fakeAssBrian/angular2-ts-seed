@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
-import { CreateTodoComponent } from '../create-todo';
-import { TodoListComponent } from '../todo-list';
-import { TodoActions } from '../../actions';
-import { TodoSelectors } from '../../selectors';
 import { TodoEffects } from '../../effects';
-import { TodoService } from '../../model';
+import { Store } from '@ngrx/store';
+import { mergeEffects } from '@ngrx/effects';
 
 @Component({
   selector: 'todo-widget',
-  // TODO(tsm): use NgModule
-  providers: [TodoEffects, TodoActions, TodoSelectors, TodoService],
-  directives: [CreateTodoComponent, TodoListComponent],
   template: `
     <create-todo></create-todo>
     
@@ -21,4 +15,11 @@ import { TodoService } from '../../model';
   styles: [require('./todo-widget.component.scss')]
 })
 export class TodoWidgetComponent {
+  constructor(private todoEffects: TodoEffects, private store: Store<any>) {
+    this.injectEffects();
+  }
+
+  injectEffects() {
+    mergeEffects(this.todoEffects).subscribe(this.store);
+  }
 }

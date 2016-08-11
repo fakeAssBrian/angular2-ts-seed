@@ -28,8 +28,6 @@ export class CreateTodoComponent implements OnInit {
   form: any;
 
   constructor(private store: Store<any>,
-              // ALL FUCKING COMPONENTS NEED TODO EFFECTS BUT ONLY NEEDED TO PROVIDE ONCE
-              // private todoEffects: TodoEffects,
               private todoActions: TodoActions,
               private formBuilder: FormBuilder) {
   }
