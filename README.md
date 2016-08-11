@@ -145,8 +145,8 @@ $ npm run generate
 
 
 
-[1]: https://david-dm.org/codewareio/angular2-es-seed#info=dependencies
-[2]: https://david-dm.org/codewareio/angular2-es-seed#info=devDependencies
+[1]: https://david-dm.org/codewareio/angular2-ts-seed#info=dependencies
+[2]: https://david-dm.org/codewareio/angular2-ts-seed#info=devDependencies
 [3]: https://github.com/postcss/postcss
 [4]: http://sass-lang.com/
 [5]: http://sass-lang.com/libsass
