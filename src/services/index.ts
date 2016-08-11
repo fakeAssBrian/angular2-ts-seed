@@ -1,9 +1,9 @@
-import { AsyncComponentResolverService } from './async-component-resolver.service';
+import { WebpackNgModuleLoader } from './async-component-resolver.service';
 import { ConfigService } from './config.service';
 // $1
 
 export {
-  AsyncComponentResolverService,
+  WebpackNgModuleLoader,
   ConfigService
 // $2
 };

@@ -1,37 +1,33 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgModuleFactoryLoader, NgModuleFactory, Compiler } from '@angular/core';
 
 @Injectable()
-export class AsyncComponentResolverService {
+export class WebpackNgModuleLoader implements NgModuleFactoryLoader {
 
-  /**
-   * @type {RuntimeCompiler}
-   */
-  compiler = null;
-
-  constructor(compiler) {
-    this.compiler = compiler;
+  constructor(private _compiler: Compiler) {
   }
 
-  /**
-   * @param {Function} component
-   * @returns {*}
-   */
-  resolveComponent(component) {
-    const isAsyncComponent = component.name.endsWith('component') && component.length;
+  load(path: any): any {
+    console.log('#load', arguments);
+    const offlineMode = this._compiler instanceof Compiler;
+    return offlineMode ? this.loadFactory(path) : this.loadAndCompile(path);
+  }
 
-    if (isAsyncComponent) {
-      return Promise.resolve(
-        component(this.compiler)
-          // .catch(err => console.error('Dynamic page loading failed', err))
-      );
-    }
+  private loadAndCompile(module: any): any {
+    console.log('#loadAndCompile', arguments);
 
-    try {
-      return this.compiler.resolveComponent(component);
-    } catch (err) {
-      console.error('Synchronously loaded component\'s class name must end with "Component"');
-      throw err;
-    }
+    // return (<any>global)
+    //   .System.import(module)
+    //   .then((module: any) => module[exportName])
+    //   .then((type: any) => checkNotEmpty(type, module, exportName))
+
+    // NEED THIS
+    //   .then((type: any) => this._compiler.compileModuleAsync(type));
+
+    return Promise.resolve(module(this._compiler));
+  }
+
+  private loadFactory(path: string): any {
+    console.log('#loadFactory', arguments);
   }
 
 }

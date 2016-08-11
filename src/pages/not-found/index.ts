@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 const notFoundRoutes = [
-  {path: 'not-found', component: NotFoundPage}
+  {path: 'asd', component: NotFoundPage}
 ];
 
 @NgModule({
