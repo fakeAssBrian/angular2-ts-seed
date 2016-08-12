@@ -8,10 +8,10 @@
     "sourceMap": true,
     "noEmitHelpers": true
   },
-  "include": [
-    "typings/index.d.ts",
-    "tools/manual-typings/**/*",
-    "src/**/*"
+  "exclude": [
+    "node_modules",
+    "src/static",
+    "dist"
   ],
   "compileOnSave": false,
   "buildOnSave": false

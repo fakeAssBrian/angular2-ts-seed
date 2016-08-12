@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared.module';
 
@@ -7,6 +7,7 @@ import { HeaderComponents } from './components/header';
 import { FooterComponent } from './components/footer';
 import { STORE_PROVIDERS } from './app.store';
 import { SERVICE_PROVIDERS } from './services';
+import { StoreLogMonitorComponent } from '@ngrx/store-log-monitor';
 import { appRouting, appRoutingProviders } from './app.routes';
 
 /**
@@ -17,7 +18,8 @@ import { appRouting, appRoutingProviders } from './app.routes';
   declarations: [
     AppComponent,
     HeaderComponents,
-    FooterComponent
+    FooterComponent,
+    IS_DEV ? StoreLogMonitorComponent : []
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { appRouting, appRoutingProviders } from './app.routes';
     STORE_PROVIDERS,
     appRoutingProviders
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule {
